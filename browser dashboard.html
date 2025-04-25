@@ -1,3 +1,11 @@
+<!-- 
+README:
+This file creates a Browser Environment Dashboard using HTML, CSS, and JavaScript.
+It uses JavaScript browser objects (navigator, screen, document, location, history, window) to display and control browser-related information and actions.
+Author: Arian Jane Agdoro
+Course: BSIT 2nd Year, Section A
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,11 +23,11 @@
     }
 
     header {
-      background-color: #2a4365; /* Solid color used instead of image */
+      background-color: #2a4365;
       color: white;
       padding: 40px 20px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
       text-align: center;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
     }
 
     section {
@@ -36,7 +44,7 @@
     }
 
     h1 {
-      color: white;
+        color: white;
     }
 
     button {
@@ -75,16 +83,16 @@
   </style>
 </head>
 <body>
-  <!-- HEADER SECTION -->
+    <!---HEADER SECTION-->
   <header>
     <h1>Browser Environment Dashboard</h1>
     <p>PF2 - Event Driven Programming</p>
   </header>
 
-  <!-- PART 0: STUDENT PROFILE -->
+    <!--PART 0: STUDENT PROFILE-->
   <section class="profile">
     <div class="profile-picture">
-      <!-- Replace 'me.jpg' with your actual image file if available -->
+        <!--REPLACE 'profile.jpg' WITH MY ACTUAL IMAGE FILE-->
       <img src="me.jpg" alt="Profile Picture">
     </div>
     <h2>Student Profile</h2>
@@ -98,31 +106,35 @@
     <p><strong>Name of Subject Instructor:</strong> ARJAY F. ABIO, MIT, LPT (Assistant Professor II)</p>
   </section>
 
-  <!-- PART A: BROWSER INFORMATION -->
+  <!--PART A: BROWSER INFORMATION-->
   <section>
     <h2>Part A: Browser Information</h2>
+    <!--JAVASCRIPT WILL INSERT BROWSER INFO HERE-->
     <div id="browserInfo"></div>
   </section>
 
-  <!-- PART B: PAGE INFO AND CONTROLS -->
+  <!--PART B: PAGE INFO AND CONTROLS-->
   <section>
     <h2>Part B: Page Info and Controls</h2>
+    <!--JAVASCRIPT WILL DISPLAY CURRENT URL, HOSTNAME, AND TITLE-->
     <div id="pageInfo"></div>
+    <!--BUTTON LETS THE USER CHANFE THE PAGE TITLE-->
     <button onclick="changeTitle()">Change Page Title</button>
   </section>
 
-  <!-- PART C: NAVIGATION CONTROLS -->
+  <!--PART C: NAVIGATION CONTROLS-->
   <section>
     <h2>Part C: Navigation Controls</h2>
+    <!--BUTTONS TO RELOAD PAGE, OPEN FACEBOOK, GO BACK ADND FORWARD-->
     <button onclick="location.reload()">Reload Page</button>
     <button onclick="window.open('https://www.facebook.com', '_blank')">Go to Facebook</button>
     <button onclick="history.back()">Back</button>
     <button onclick="history.forward()">Forward</button>
   </section>
 
-  <!-- JAVASCRIPT SECTION -->
+  <!--JAVASCRIPT SEECTION-->
   <script>
-    // PART A: Display browser and screen info
+    // PART A: DISPLAY BROWSER AND SCREEN INFORMATION
     function displayBrowserInfo() {
       const info = `
         <p class="info-item"><strong>Browser:</strong> ${navigator.appName} (${navigator.appVersion})</p>
@@ -135,7 +147,7 @@
       document.getElementById("browserInfo").innerHTML = info;
     }
 
-    // PART B: Show current page info
+    // PART B: DISPLAY CURRENT URL, HOSTNAME, AND TITLE
     function displayPageInfo() {
       const info = `
         <p class="info-item"><strong>URL:</strong> ${location.href}</p>
@@ -145,7 +157,7 @@
       document.getElementById("pageInfo").innerHTML = info;
     }
 
-    // Change page title
+    // ALLOWS USER TO CHANGE THE TITLE OF THE CURRENT PAGE
     function changeTitle() {
       const newTitle = prompt("Enter a new page title:");
       if (newTitle) {
@@ -154,7 +166,7 @@
       }
     }
 
-    // Set background based on screen width
+    //PART D: CHANGE BACKGROUND COLOR BASED ON SCREEN WIDTH
     function setBackgroundByScreenSize() {
       const width = window.innerWidth;
       if (width < 600) {
@@ -166,11 +178,14 @@
       }
     }
 
-    // Initialize on load
+    // Initialize dashboard info
     displayBrowserInfo();
     displayPageInfo();
     setBackgroundByScreenSize();
+
+    // Update background on resize
     window.onresize = setBackgroundByScreenSize;
   </script>
+
 </body>
 </html>
